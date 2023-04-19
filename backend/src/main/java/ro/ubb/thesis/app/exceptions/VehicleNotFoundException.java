@@ -1,0 +1,10 @@
+package ro.ubb.thesis.app.exceptions;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+public class VehicleNotFoundException extends RuntimeException {
+    public VehicleNotFoundException(String message) {
+        super(message);
+    }
+}
