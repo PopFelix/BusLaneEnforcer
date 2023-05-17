@@ -24,7 +24,7 @@ public interface VehicleApi {
     @GetMapping("/accepted/{licensePlate}")
     AcceptedVehicleDto getAcceptedVehicleByLicensePlate(@PathVariable String licensePlate);
 
-    @PostMapping("/unauthorized/")
+    @PostMapping("/unauthorized")
     UnauthorizedVehicleLogDto registerUnauthorizedVehicleLog(@RequestBody UnauthorizedVehicleLogDto vehicleLogDto);
 
     @GetMapping("/unauthorized")
