@@ -1,7 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '../node_modules/alertifyjs//build/css/alertify.min.css';
+@import '../node_modules/alertifyjs//build/css/themes/bootstrap.min.css';
+@import '../node_modules/alertifyjs//build/css/themes/default.css';
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 bg-image{
     background-image: url(assets/bg/login_bg.jpg);
 }
+
+.selector {
+    background-image: url("assets/bg/login_bg.jpg");
+    background-size: auto  ;  
+}
+
+.ajs-message { color: #31708f;  background-color: #2d3a41;  border-color: #31708f; }

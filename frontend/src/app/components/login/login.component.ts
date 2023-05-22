@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Route, Router } from '@angular/router';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { TokenService } from 'src/app/services/token/token.service';
 
@@ -9,17 +10,26 @@ import { TokenService } from 'src/app/services/token/token.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  loginForm!: FormGroup;
+  username!: string;
+  password!: string;
 
-  user: any;
-  password: any;
+  constructor(private formBuilder: FormBuilder,private router: Router, private route: ActivatedRoute, private authService: AuthService, private tokenService: TokenService) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
+  ngOnInit() {
+    document.body.className = "selector";
+    if(this.tokenService.getAccessToken()) {
+      this.router.navigate(['/'])
+    }
+  }
+  onLogin() {
+    this.authService.login(this.username, this.password);
   }
 
-  login() {
-    throw new Error('Method not implemented.');
-    }
+
+
+ngOnDestroy(){
+    document.body.className="";
+  }
 
 }

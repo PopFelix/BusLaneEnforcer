@@ -42,6 +42,7 @@ public class AcceptedVehicleService {
         foundVehicle.setMake(vehicle.getMake());
         foundVehicle.setModel(vehicle.getModel());
         foundVehicle.setLicensePlateNumber(vehicle.getLicensePlateNumber());
+        foundVehicle.setActivityType(vehicle.getActivityType());
         return acceptedVehicleMapper.toDto(acceptedVehicleRepository.save(foundVehicle));
     }
 

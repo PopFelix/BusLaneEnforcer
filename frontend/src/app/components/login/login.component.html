@@ -8,7 +8,7 @@
           <mat-tab label="Login">
             <mat-form-field class="example-full-width">
               <mat-label>User</mat-label>
-              <input type="text" matInput placeholder="User" value="" [(ngModel)]="user">
+              <input type="text" matInput placeholder="Username" value="" [(ngModel)]="username">
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
   
@@ -17,7 +17,7 @@
               <input type="password" matInput placeholder="Password" [(ngModel)]="password">
               <mat-icon matSuffix>vpn_key</mat-icon>
             </mat-form-field>
-            <button mat-button color="primary" (click)="login()">Login</button>
+            <button mat-button color="primary" (click)="onLogin()">Login</button>
           </mat-tab>
         </mat-tab-group>
       </mat-card-content>
