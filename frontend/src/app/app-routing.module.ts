@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth/auth.interceptor';
 import { AuthService } from './services/auth/auth.service';
 import { TokenService } from './services/token/token.service';
+import { UnauthorizedVehiclesComponent } from './components/unauthorized-vehicles/unauthorized-vehicles.component';
+import { UploadComponent } from './components/upload/upload.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -16,7 +18,15 @@ const routes: Routes = [
   children: [{
     path:'accepted-vehicles',
     component:AcceptedVehiclesComponent
-  }]}
+  },
+{
+  path:'unauthorized-vehicles',
+  component: UnauthorizedVehiclesComponent
+},
+{
+  path:'upload',
+  component: UploadComponent
+}]}
 ];
 
 @NgModule({

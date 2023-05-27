@@ -36,6 +36,12 @@ import { AcceptedVehiclesModalComponent } from './components/accepted-vehicles/a
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { UnauthorizedVehiclesComponent } from './components/unauthorized-vehicles/unauthorized-vehicles.component';
+import { UnauthorizedVehiclesShowComponent } from './components/unauthorized-vehicles/unauthorized-vehicles-show/unauthorized-vehicles-show.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import { SecurePipe } from './pipes/secure.pipe';
+import { UploadComponent } from './components/upload/upload.component';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 @NgModule({
   declarations: [
@@ -49,7 +55,12 @@ import { MatSelectModule } from '@angular/material/select';
     AcceptedVehiclesShowComponent,
     AcceptedVehiclesAddComponent,
     AcceptedVehiclesUpdateComponent,
-    AcceptedVehiclesModalComponent
+    AcceptedVehiclesModalComponent,
+    UnauthorizedVehiclesComponent,
+    UnauthorizedVehiclesShowComponent,
+    SecurePipe,
+    UploadComponent,
+    DragDropDirective
   ],
   imports: [
     BrowserModule,
@@ -76,9 +87,10 @@ import { MatSelectModule } from '@angular/material/select';
     MatSortModule,
     MatDialogModule,
     MatDatepickerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatNativeDateModule
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

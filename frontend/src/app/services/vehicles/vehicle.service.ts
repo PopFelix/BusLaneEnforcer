@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject, map, tap } from 'rxjs';
 import { AcceptedVehicle } from 'src/app/components/accepted-vehicles/accepted-vehicle';
+import { UnauthorizedLog } from 'src/app/components/unauthorized-vehicles/unauthorized-log';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -54,4 +55,9 @@ export class VehicleService {
       })
     );
   }
+
+  getUnauthorizedLogs(): Observable<UnauthorizedLog[]>{
+    return this.http.get<any>(this.vehicleUrl+'unauthorized');
+  }
+
 }

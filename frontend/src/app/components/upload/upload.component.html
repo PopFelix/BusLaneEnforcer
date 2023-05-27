@@ -1,0 +1,9 @@
+<div class="container" appDnd (fileDropped)="onFileDropped($event)">
+    <input type="file" #fileDropRef id="fileDropRef" multiple (change)="fileBrowseHandler($event)" />
+    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home" color="primary"></mat-icon>
+    <mat-card-title>Drag and drop file here</mat-card-title><br>
+    <mat-card-title>or</mat-card-title>
+    <br><br><br>
+    <label mat-button for="fileDropRef">Browse for file</label>
+  </div>
+ 

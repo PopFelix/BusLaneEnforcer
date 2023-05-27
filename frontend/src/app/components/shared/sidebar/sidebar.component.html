@@ -1,8 +1,8 @@
 <mat-nav-list>
     <h2 matSubheader>Pages</h2>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/accepted-vehicles">Accepted vehicles</a>
-
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/accepted-vehicles"><mat-icon>directions_bus</mat-icon>Accepted vehicles</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/unauthorized-vehicles"><mat-icon>car_crash</mat-icon>Unauthorized logs</a>
     <h2 matSubheader>Tools</h2>
-    <a mat-list-item>Import from excel </a>
-    <a mat-list-item>Upload recording</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/upload"><mat-icon>image_search</mat-icon>Scan video</a>
+    <a mat-list-item><mat-icon>publish</mat-icon>Import from excel </a>
 </mat-nav-list>
