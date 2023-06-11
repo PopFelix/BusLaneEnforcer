@@ -6,8 +6,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import ro.ubb.thesis.api.dto.ResponseFileDto;
 import ro.ubb.thesis.api.dto.UnauthorizedVehicleLogDto;
+import ro.ubb.thesis.app.domain.UnauthorizedVehicleLog;
 import ro.ubb.thesis.app.exceptions.VideoNotFoundException;
 import ro.ubb.thesis.app.mapper.UnauthorizedVehicleLogMapper;
+import ro.ubb.thesis.app.repo.AcceptedVehicleRepository;
 import ro.ubb.thesis.app.repo.UnauthorizedVehicleLogRepository;
 import ro.ubb.thesis.app.repo.VideoUploadRepository;
 
@@ -20,9 +22,14 @@ public class UnauthorizedVehicleLogService {
     private final UnauthorizedVehicleLogRepository logRepository;
     private final UnauthorizedVehicleLogMapper logMapper;
     private final VideoUploadRepository videoUploadRepository;
+    private final AcceptedVehicleRepository acceptedVehicleRepository;
 
     @Transactional
     public UnauthorizedVehicleLogDto registerUnauthorizedVehicleLog(UnauthorizedVehicleLogDto dto) {
+        var isAccepted = acceptedVehicleRepository.existsAcceptedVehicleByLicensePlateNumber(dto.getLicensePlateNumber());
+        if (isAccepted){
+            return new UnauthorizedVehicleLogDto();
+        }
         var videoUpload = videoUploadRepository.findVideoUploadsByName(dto.getVideoUploadFileName());
         if (videoUpload.isEmpty()) {
             throw new VideoNotFoundException("Video upload " + dto.getVideoUploadFileName() + " not found!");

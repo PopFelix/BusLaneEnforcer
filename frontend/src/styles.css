@@ -10,7 +10,7 @@ bg-image{
 
 .selector {
     background-image: url("assets/bg/login_bg.jpg");
-    background-size: auto  ;  
+    background-size: cover  ;  
 }
 
 .ajs-message { color: #31708f;  background-color: #2d3a41;  border-color: #31708f; }
